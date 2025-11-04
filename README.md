@@ -17,13 +17,41 @@ Ein kostenloses, selbst-gehostetes Information Security Management System (ISMS)
 
 ## 🚀 Quick Start
 
-### Voraussetzungen
+### 🐳 Docker/Portainer (Empfohlen)
+
+**Einfachster Weg mit Docker Compose:**
+
+```bash
+# .env Datei erstellen
+cp .env.docker .env
+# WICHTIG: Bearbeiten Sie .env und ändern Sie SECRET_KEY und ADMIN_PASSWORD!
+
+# Container starten
+docker-compose up -d
+
+# Zugriff auf die Anwendung
+# Frontend: http://localhost
+# API Docs: http://localhost:8000/docs
+```
+
+**Mit Portainer:**
+
+1. Stack erstellen mit `portainer-stack.yml`
+2. Environment Variables setzen (SECRET_KEY, ADMIN_PASSWORD, POSTGRES_PASSWORD)
+3. Stack deployen
+
+👉 **Siehe [Docker Deployment Guide](docs/DOCKER_DEPLOYMENT.md) für Details**
+
+### 💻 Manuelle Installation
+
+<details>
+<summary>Klicken für manuelle Installation ohne Docker</summary>
+
+#### Voraussetzungen
 
 - Python 3.9+
 - Node.js 18+
 - Git
-
-### Installation
 
 #### Backend
 ```bash
@@ -48,7 +76,9 @@ Die Anwendung ist nun verfügbar unter:
 - Backend API: http://localhost:8000
 - API Dokumentation: http://localhost:8000/docs
 
-### Standard-Benutzer
+</details>
+
+### 🔑 Standard-Benutzer
 
 Nach der ersten Installation wird ein Admin-Benutzer erstellt:
 - **Benutzername**: admin
@@ -116,11 +146,10 @@ ISMS/
 
 ## 📖 Dokumentation
 
-- [Installation](docs/INSTALLATION.md)
-- [Benutzerhandbuch](docs/USER_GUIDE.md)
-- [Administrator-Handbuch](docs/ADMIN_GUIDE.md)
-- [Microsoft Entra Setup](docs/ENTRA_SETUP.md)
-- [API Dokumentation](http://localhost:8000/docs)
+- 🐳 [**Docker/Portainer Deployment**](docs/DOCKER_DEPLOYMENT.md) - Empfohlen für Production
+- 💻 [Manuelle Installation](docs/INSTALLATION.md)
+- 🔐 [Microsoft Entra Setup](docs/ENTRA_SETUP.md)
+- 📚 [API Dokumentation](http://localhost:8000/docs) (nach Start verfügbar)
 
 ## 🤝 Beitragen
 
