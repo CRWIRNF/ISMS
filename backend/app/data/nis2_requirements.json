@@ -1,0 +1,163 @@
+{
+  "version": "1.0.0",
+  "source": "NIS2-Richtlinie Artikel 21 Absatz 2",
+  "last_updated": "2025-11-04",
+  "requirements": [
+    {
+      "code": "NIS2-A21-01",
+      "category": "risk_management",
+      "title": "Risikoanalyse und Sicherheitskonzepte für die Informationssicherheit",
+      "description": "Implementierung von Konzepten für Risikoanalyse und Sicherheit der Informationssysteme. Dies umfasst die systematische Identifizierung, Bewertung und Behandlung von Cyberrisiken.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. a NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.5.1\", \"A.8.1\", \"A.8.2\", \"A.8.3\"]",
+      "is_mandatory": true,
+      "priority": 1,
+      "implementation_guidance": "Etablieren Sie einen strukturierten Risikomanagement-Prozess nach ISO 27001 oder BSI IT-Grundschutz. Führen Sie regelmäßige Risikoanalysen durch und dokumentieren Sie alle identifizierten Risiken sowie deren Behandlung.",
+      "evidence_required": "Risikomanagement-Dokumentation, Risikoregister, Risikobehandlungspläne, Genehmigungsnachweise für Restrisiken"
+    },
+    {
+      "code": "NIS2-A21-02",
+      "category": "incident_management",
+      "title": "Bewältigung von Sicherheitsvorfällen",
+      "description": "Implementierung von Maßnahmen zur Bewältigung von Sicherheitsvorfällen, einschließlich Verfahren zur Verhinderung, Erkennung, Reaktion und Wiederherstellung nach Sicherheitsvorfällen.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. b NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.5.24\", \"A.5.25\", \"A.5.26\", \"A.5.27\"]",
+      "is_mandatory": true,
+      "priority": 1,
+      "implementation_guidance": "Erstellen Sie einen Incident Response Plan mit klar definierten Rollen, Verantwortlichkeiten und Eskalationswegen. Richten Sie ein Incident Response Team ein und führen Sie regelmäßige Übungen durch. Beachten Sie die 24-Stunden-Meldefrist für wesentliche Vorfälle.",
+      "evidence_required": "Incident Response Plan, Incident-Logs, Meldungen an Behörden, Schulungsnachweise, Übungsprotokolle"
+    },
+    {
+      "code": "NIS2-A21-03a",
+      "category": "business_continuity",
+      "title": "Backup-Management und Datenwiederherstellung",
+      "description": "Implementierung von Backup-Verfahren und -Mechanismen, einschließlich Backup-Tests und regelmäßiger Wiederherstellungsübungen.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. c NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.8.13\", \"A.8.14\"]",
+      "is_mandatory": true,
+      "priority": 1,
+      "implementation_guidance": "Implementieren Sie eine 3-2-1-Backup-Strategie (3 Kopien, 2 verschiedene Medien, 1 Offsite). Führen Sie regelmäßige Wiederherstellungstests durch und dokumentieren Sie die Ergebnisse. Stellen Sie sicher, dass Backups gegen Ransomware geschützt sind.",
+      "evidence_required": "Backup-Konzept, Backup-Logs, Test-Protokolle der Wiederherstellung, RTO/RPO-Definitionen"
+    },
+    {
+      "code": "NIS2-A21-03b",
+      "category": "business_continuity",
+      "title": "Wiederherstellung nach Notfällen und Krisenmanagement",
+      "description": "Implementierung von Disaster-Recovery-Plänen und Krisenmanagement-Verfahren zur Aufrechterhaltung kritischer Geschäftsprozesse.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. c NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.5.29\", \"A.5.30\"]",
+      "is_mandatory": true,
+      "priority": 1,
+      "implementation_guidance": "Erstellen Sie einen Business Continuity Plan (BCP) und Disaster Recovery Plan (DRP). Definieren Sie kritische Geschäftsprozesse und deren maximale Ausfallzeiten (RTO/RPO). Führen Sie mindestens jährlich Notfallübungen durch.",
+      "evidence_required": "BCP/DRP-Dokumentation, Business Impact Analyse, Übungsprotokolle, Notfallkontaktlisten"
+    },
+    {
+      "code": "NIS2-A21-04",
+      "category": "supply_chain",
+      "title": "Sicherheit der Lieferkette",
+      "description": "Bewertung und Management der Cybersicherheitsrisiken in Bezug auf Beziehungen zwischen Einrichtungen und direkten Anbietern oder Dienstleistern.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. d NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.5.19\", \"A.5.20\", \"A.5.21\", \"A.5.22\"]",
+      "is_mandatory": true,
+      "priority": 2,
+      "implementation_guidance": "Führen Sie ein Lieferantenmanagement ein. Bewerten Sie die Sicherheit Ihrer kritischen Lieferanten und Dienstleister. Integrieren Sie Sicherheitsanforderungen in Verträge. Überwachen Sie kontinuierlich die Sicherheit der Lieferkette.",
+      "evidence_required": "Lieferantenregister, Sicherheitsbewertungen, Verträge mit Sicherheitsklauseln, Überwachungsberichte"
+    },
+    {
+      "code": "NIS2-A21-05",
+      "category": "security_acquisition",
+      "title": "Sicherheit bei Erwerb, Entwicklung und Wartung",
+      "description": "Konzepte und Verfahren zur Bewertung der Wirksamkeit von Risikomanagementmaßnahmen im Bereich der Cybersicherheit bei Erwerb, Entwicklung und Wartung von Netz- und Informationssystemen.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. e NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.8.25\", \"A.8.26\", \"A.8.27\", \"A.8.28\"]",
+      "is_mandatory": true,
+      "priority": 2,
+      "implementation_guidance": "Implementieren Sie Security by Design und Security by Default Prinzipien. Führen Sie Sicherheitsprüfungen bei Beschaffung durch. Etablieren Sie einen Secure Software Development Lifecycle (SSDLC) für Eigenentwicklungen. Definieren Sie Wartungsprozesse mit Sicherheitskontrollen.",
+      "evidence_required": "Beschaffungsrichtlinien mit Sicherheitsanforderungen, SSDLC-Dokumentation, Code-Review-Berichte, Penetrationstests"
+    },
+    {
+      "code": "NIS2-A21-06",
+      "category": "effectiveness_testing",
+      "title": "Prüfung und Bewertung der Wirksamkeit von Maßnahmen",
+      "description": "Konzepte und Verfahren zur Bewertung der Wirksamkeit von Risikomanagementmaßnahmen im Bereich der Cybersicherheit.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. f NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.5.37\", \"A.8.8\"]",
+      "is_mandatory": true,
+      "priority": 2,
+      "implementation_guidance": "Führen Sie regelmäßige interne Audits durch. Nutzen Sie Penetrationstests und Vulnerability Assessments. Implementieren Sie ein Kennzahlensystem (KPIs) zur Messung der Sicherheitseffektivität. Führen Sie mindestens jährlich eine Management-Review durch.",
+      "evidence_required": "Audit-Berichte, Penetrationstest-Berichte, Vulnerability Scan Reports, KPI-Dashboards, Management-Review-Protokolle"
+    },
+    {
+      "code": "NIS2-A21-07a",
+      "category": "cyber_hygiene",
+      "title": "Grundlegende Cyber-Hygiene-Verfahren",
+      "description": "Grundlegende Verfahren im Bereich der Cyberhygiene einschließlich Patch-Management, Update-Prozesse und Konfigurationsmanagement.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. g NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.8.9\", \"A.8.19\"]",
+      "is_mandatory": true,
+      "priority": 1,
+      "implementation_guidance": "Implementieren Sie ein automatisiertes Patch-Management-System. Definieren Sie SLAs für kritische Sicherheitsupdates (z.B. 48h für kritische Patches). Führen Sie regelmäßige Schwachstellenscans durch. Etablieren Sie sichere Baseline-Konfigurationen.",
+      "evidence_required": "Patch-Management-Richtlinie, Patch-Status-Berichte, Vulnerability Scan Reports, Konfigurations-Standards"
+    },
+    {
+      "code": "NIS2-A21-07b",
+      "category": "cyber_hygiene",
+      "title": "Schulungen zur Cybersicherheit",
+      "description": "Schulungen im Bereich Cybersicherheit für alle Mitarbeiter und Führungskräfte.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. g NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.6.3\"]",
+      "is_mandatory": true,
+      "priority": 1,
+      "implementation_guidance": "Führen Sie mindestens jährlich Security Awareness Trainings für alle Mitarbeiter durch. Bieten Sie spezialisierte Schulungen für IT-Personal an. Führen Sie Phishing-Simulationen durch. Schulen Sie die Geschäftsführung zu ihren Verantwortlichkeiten unter NIS2.",
+      "evidence_required": "Schulungsplan, Teilnehmerlisten, Schulungsinhalte, Phishing-Test-Ergebnisse, Schulungszertifikate"
+    },
+    {
+      "code": "NIS2-A21-08",
+      "category": "cryptography",
+      "title": "Kryptografie und Verschlüsselung",
+      "description": "Konzepte und Verfahren für den Einsatz von Kryptografie und gegebenenfalls Verschlüsselung.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. h NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.8.24\"]",
+      "is_mandatory": true,
+      "priority": 2,
+      "implementation_guidance": "Implementieren Sie Verschlüsselung für Daten in Übertragung (TLS 1.2+) und im Ruhezustand. Etablieren Sie ein Schlüsselmanagement-System. Nutzen Sie nur aktuelle, sichere Verschlüsselungsalgorithmen. Definieren Sie, wann Verschlüsselung verpflichtend ist.",
+      "evidence_required": "Kryptografie-Richtlinie, Schlüsselverwaltungsprozesse, Verschlüsselungsnachweise, Zertifikatsmanagement"
+    },
+    {
+      "code": "NIS2-A21-09",
+      "category": "personnel_security",
+      "title": "Personalsicherheit und Zugangskontrollen",
+      "description": "Personalsicherheit, Konzepte für die Zugangssteuerung und Management von Anlagen.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. h NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.5.15\", \"A.5.16\", \"A.5.17\", \"A.5.18\", \"A.8.2\", \"A.8.3\"]",
+      "is_mandatory": true,
+      "priority": 1,
+      "implementation_guidance": "Implementieren Sie Hintergrundüberprüfungen für kritische Positionen. Etablieren Sie ein Rollen- und Berechtigungskonzept (RBAC). Führen Sie regelmäßige Zugriffsreviews durch. Definieren Sie sichere Onboarding- und Offboarding-Prozesse. Implementieren Sie das Need-to-Know-Prinzip.",
+      "evidence_required": "Berechtigungskonzept, Access-Review-Berichte, Onboarding/Offboarding-Checklisten, Vertraulichkeitsvereinbarungen"
+    },
+    {
+      "code": "NIS2-A21-10a",
+      "category": "mfa_communication",
+      "title": "Multi-Faktor-Authentifizierung",
+      "description": "Verwendung von Multi-Faktor-Authentifizierung oder kontinuierlicher Authentifizierung, gesicherter Sprach-, Video- und Textkommunikation.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. h NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.5.17\", \"A.5.18\"]",
+      "is_mandatory": true,
+      "priority": 1,
+      "implementation_guidance": "Implementieren Sie MFA für alle privilegierten Konten und Remote-Zugriffe. Nutzen Sie moderne MFA-Methoden (TOTP, FIDO2, biometrisch). Vermeiden Sie SMS-basierte MFA wo möglich. Implementieren Sie MFA auch für administrative Interfaces und VPN-Zugriffe.",
+      "evidence_required": "MFA-Implementierungsnachweise, Konfigurationsdokumentation, Nutzungsstatistiken, Ausnahmen-Dokumentation"
+    },
+    {
+      "code": "NIS2-A21-10b",
+      "category": "mfa_communication",
+      "title": "Sichere Kommunikationssysteme",
+      "description": "Gesicherte Sprach-, Video- und Textkommunikation sowie gegebenenfalls gesicherte Notfallkommunikationssysteme.",
+      "legal_reference": "Artikel 21 Abs. 2 lit. h NIS2-Richtlinie",
+      "iso27001_controls": "[\"A.5.14\", \"A.8.24\"]",
+      "is_mandatory": true,
+      "priority": 2,
+      "implementation_guidance": "Nutzen Sie Ende-zu-Ende-verschlüsselte Kommunikationslösungen für geschäftskritische Kommunikation. Implementieren Sie sichere Videokonferenz-Lösungen. Etablieren Sie alternative Kommunikationswege für Notfälle (Out-of-Band-Kommunikation).",
+      "evidence_required": "Übersicht eingesetzter Kommunikationssysteme, Sicherheitsbewertungen, Verschlüsselungsnachweise, Notfallkommunikationsplan"
+    }
+  ]
+}
