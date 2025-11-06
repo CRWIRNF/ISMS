@@ -62,12 +62,14 @@ services:
       cd /tmp/repo &&
       echo '=== Checking out branch ===' &&
       git checkout claude/nis2-compliance-requirements-011CUoKupKkui9x28zeqpAS2 &&
-      echo '=== Copying backend files ===' &&
-      cp -r /tmp/repo/backend/* /app/ &&
+      echo '=== Setting up backend directory ===' &&
+      cd /tmp/repo/backend &&
       mkdir -p /app/data &&
+      ln -sf /app/data data &&
       echo '=== Installing Python dependencies ===' &&
-      pip install --no-cache-dir -r /app/requirements.txt &&
-      echo '=== Starting uvicorn ===' &&
+      pip install --no-cache-dir -r requirements.txt &&
+      echo '=== Starting uvicorn from backend directory ===' &&
+      cd /tmp/repo/backend &&
       uvicorn app.main:app --host 0.0.0.0 --port 8000
       "
 
