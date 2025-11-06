@@ -142,7 +142,7 @@ services:
       sh -c "
       echo '=== Starting Frontend Deployment ===' &&
       rm -rf /tmp/repo &&
-      apk add --no-cache git nodejs npm &&
+      apk add --no-cache git nodejs npm curl &&
       echo '=== Cloning repository ===' &&
       git clone https://github.com/CRWIRNF/ISMS.git /tmp/repo &&
       cd /tmp/repo &&
@@ -156,7 +156,12 @@ services:
       echo '=== Copying build files ===' &&
       cp -r dist/* /usr/share/nginx/html/ &&
       cp /tmp/repo/frontend/nginx.conf /etc/nginx/conf.d/default.conf &&
-      echo '=== Starting nginx ===' &&
+      echo '=== Waiting for backend to be ready ===' &&
+      until curl -f http://backend:8000/api/health > /dev/null 2>&1; do
+        echo 'Waiting for backend...';
+        sleep 2;
+      done &&
+      echo '=== Backend is ready! Starting nginx ===' &&
       nginx -g 'daemon off;'
       "
 
