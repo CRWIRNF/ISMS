@@ -30,15 +30,17 @@ services:
       - nis2-network
 
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-nis2user}"]
+      test:
+        - "CMD-SHELL"
+        - "pg_isready -U nis2user"
       interval: 10s
       timeout: 5s
       retries: 5
 
     labels:
-      com.portainer.stack: "nis2-isms"
-      com.portainer.service: "postgres"
-      description: "NIS2 ISMS PostgreSQL Database"
+      - "com.portainer.stack=nis2-isms"
+      - "com.portainer.service=postgres"
+      - "description=NIS2 ISMS PostgreSQL Database"
 
   # ============================================
   # Backend API (FastAPI + PostgreSQL)
@@ -107,16 +109,20 @@ services:
       - nis2-network
 
     healthcheck:
-      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8000/api/health')"]
+      test:
+        - "CMD"
+        - "python"
+        - "-c"
+        - "import requests; requests.get('http://localhost:8000/api/health')"
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 90s
 
     labels:
-      com.portainer.stack: "nis2-isms"
-      com.portainer.service: "backend"
-      description: "NIS2 ISMS Backend API"
+      - "com.portainer.stack=nis2-isms"
+      - "com.portainer.service=backend"
+      - "description=NIS2 ISMS Backend API"
 
   # ============================================
   # Frontend (React + Nginx)
@@ -158,16 +164,22 @@ services:
       - nis2-network
 
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80/"]
+      test:
+        - "CMD"
+        - "wget"
+        - "--quiet"
+        - "--tries=1"
+        - "--spider"
+        - "http://localhost:80/"
       interval: 30s
       timeout: 3s
       retries: 3
       start_period: 120s
 
     labels:
-      com.portainer.stack: "nis2-isms"
-      com.portainer.service: "frontend"
-      description: "NIS2 ISMS Frontend"
+      - "com.portainer.stack=nis2-isms"
+      - "com.portainer.service=frontend"
+      - "description=NIS2 ISMS Frontend"
 
 # ============================================
 # Networks
@@ -176,7 +188,7 @@ networks:
   nis2-network:
     driver: bridge
     labels:
-      com.portainer.stack: "nis2-isms"
+      - "com.portainer.stack=nis2-isms"
 
 # ============================================
 # Volumes
@@ -185,8 +197,8 @@ volumes:
   postgres-data:
     driver: local
     labels:
-      com.portainer.stack: "nis2-isms"
-      description: "NIS2 ISMS PostgreSQL Database"
+      - "com.portainer.stack=nis2-isms"
+      - "description=NIS2 ISMS PostgreSQL Database"
 
 # ==========================================
 # PORTAINER DEPLOYMENT - COPY & PASTE
