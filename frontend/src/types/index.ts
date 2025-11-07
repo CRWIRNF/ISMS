@@ -92,6 +92,91 @@ export interface Measure {
   updated_at: string
 }
 
+// Risk types
+export enum RiskLevel {
+  CRITICAL = 'critical',
+  HIGH = 'high',
+  MEDIUM = 'medium',
+  LOW = 'low',
+  NEGLIGIBLE = 'negligible',
+}
+
+export enum RiskStatus {
+  IDENTIFIED = 'identified',
+  ASSESSED = 'assessed',
+  TREATED = 'treated',
+  ACCEPTED = 'accepted',
+  MONITORED = 'monitored',
+  CLOSED = 'closed',
+}
+
+export interface Risk {
+  id: number
+  risk_id: string
+  title: string
+  description: string
+  category: string | null
+  likelihood: number
+  impact: number
+  risk_score: number
+  risk_level: RiskLevel
+  status: RiskStatus
+  treatment_plan: string | null
+  residual_likelihood: number | null
+  residual_impact: number | null
+  residual_risk_score: number | null
+  residual_risk_level: RiskLevel | null
+  requirement_id: number | null
+  related_measure_id: number | null
+  owner_id: number
+  identified_date: string
+  target_closure_date: string | null
+  actual_closure_date: string | null
+  last_review_date: string | null
+  next_review_date: string | null
+  created_at: string
+  updated_at: string
+}
+
+export interface RiskCreate {
+  risk_id: string
+  title: string
+  description: string
+  category?: string
+  likelihood: number
+  impact: number
+  treatment_plan?: string
+  requirement_id?: number
+  related_measure_id?: number
+  identified_date: string
+}
+
+export interface RiskUpdate {
+  title?: string
+  description?: string
+  category?: string
+  likelihood?: number
+  impact?: number
+  status?: RiskStatus
+  treatment_plan?: string
+  residual_likelihood?: number
+  residual_impact?: number
+  target_closure_date?: string
+  actual_closure_date?: string
+  last_review_date?: string
+  next_review_date?: string
+}
+
+export interface RiskStatistics {
+  total_risks: number
+  status_distribution: Record<string, number>
+  level_distribution: Record<string, number>
+  average_risk_score: number
+  high_priority_risks: number
+  overdue_risks: number
+  review_required: number
+}
+
 // API Error
 export interface ApiError {
   detail: string

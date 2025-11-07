@@ -11,7 +11,7 @@ from .database import init_db, SessionLocal
 from .models.user import User, UserRole, AuthProvider
 from .models.requirement import Requirement
 from .core.security import get_password_hash
-from .api import auth, users, requirements, measures
+from .api import auth, users, requirements, measures, risks
 
 # Create FastAPI app
 app = FastAPI(
@@ -35,6 +35,7 @@ app.include_router(auth.router, prefix="/api")
 app.include_router(users.router, prefix="/api")
 app.include_router(requirements.router, prefix="/api")
 app.include_router(measures.router, prefix="/api")
+app.include_router(risks.router, prefix="/api/risks", tags=["risks"])
 
 
 @app.on_event("startup")

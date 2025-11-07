@@ -1,5 +1,8 @@
 import axios, { AxiosError } from 'axios'
-import type { User, LoginRequest, Token, Requirement, Measure } from '@/types'
+import type {
+  User, LoginRequest, Token, Requirement, Measure,
+  Risk, RiskCreate, RiskUpdate, RiskStatistics, RiskLevel, RiskStatus
+} from '@/types'
 
 const api = axios.create({
   baseURL: '/api',
@@ -89,6 +92,58 @@ export const measuresApi = {
   },
   myMeasures: async (): Promise<Measure[]> => {
     const response = await api.get<Measure[]>('/measures/my-measures')
+    return response.data
+  },
+}
+
+// Risks API
+export const risksApi = {
+  list: async (params?: {
+    status?: RiskStatus
+    level?: RiskLevel
+    category?: string
+    search?: string
+    sort_by?: string
+    sort_order?: 'asc' | 'desc'
+    skip?: number
+    limit?: number
+  }): Promise<Risk[]> => {
+    const response = await api.get<Risk[]>('/risks/', { params })
+    return response.data
+  },
+  get: async (id: number): Promise<Risk> => {
+    const response = await api.get<Risk>(`/risks/${id}`)
+    return response.data
+  },
+  create: async (data: RiskCreate): Promise<Risk> => {
+    const response = await api.post<Risk>('/risks/', data)
+    return response.data
+  },
+  update: async (id: number, data: RiskUpdate): Promise<Risk> => {
+    const response = await api.put<Risk>(`/risks/${id}`, data)
+    return response.data
+  },
+  delete: async (id: number): Promise<void> => {
+    await api.delete(`/risks/${id}`)
+  },
+  accept: async (id: number): Promise<Risk> => {
+    const response = await api.post<Risk>(`/risks/${id}/accept`)
+    return response.data
+  },
+  close: async (id: number): Promise<Risk> => {
+    const response = await api.post<Risk>(`/risks/${id}/close`)
+    return response.data
+  },
+  getStatistics: async (): Promise<RiskStatistics> => {
+    const response = await api.get<RiskStatistics>('/risks/statistics')
+    return response.data
+  },
+  getMatrix: async (): Promise<{ matrix: Record<string, number> }> => {
+    const response = await api.get<{ matrix: Record<string, number> }>('/risks/matrix')
+    return response.data
+  },
+  getCategories: async (): Promise<{ categories: string[] }> => {
+    const response = await api.get<{ categories: string[] }>('/risks/categories')
     return response.data
   },
 }

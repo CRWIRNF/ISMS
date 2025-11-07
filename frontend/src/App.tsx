@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage'
 import DashboardPage from './pages/DashboardPage'
 import RequirementsPage from './pages/RequirementsPage'
 import MeasuresPage from './pages/MeasuresPage'
+import RisksPage from './pages/RisksPage'
 import Layout from './components/Layout'
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
           } />
           <Route path="/measures" element={
             isAuthenticated ? <MeasuresPage /> : <Navigate to="/login" replace />
+          } />
+          <Route path="/risks" element={
+            isAuthenticated ? <RisksPage /> : <Navigate to="/login" replace />
           } />
         </Route>
 

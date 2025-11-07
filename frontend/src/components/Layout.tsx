@@ -1,6 +1,6 @@
 import { Outlet, Link, useLocation } from 'react-router-dom'
 import { useAuthStore } from '@/store/authStore'
-import { Shield, FileCheck, ClipboardList, LogOut, User } from 'lucide-react'
+import { Shield, FileCheck, ClipboardList, AlertTriangle, LogOut, User } from 'lucide-react'
 
 export default function Layout() {
   const { user, logout } = useAuthStore()
@@ -10,6 +10,7 @@ export default function Layout() {
     { name: 'Dashboard', href: '/', icon: Shield },
     { name: 'Anforderungen', href: '/requirements', icon: FileCheck },
     { name: 'Maßnahmen', href: '/measures', icon: ClipboardList },
+    { name: 'Risikomanagement', href: '/risks', icon: AlertTriangle },
   ]
 
   const isActive = (path: string) => location.pathname === path
