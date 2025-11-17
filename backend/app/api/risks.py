@@ -9,7 +9,7 @@ from sqlalchemy import desc, asc, or_, and_, func
 from ..database import get_db
 from ..models.risk import Risk, RiskLevel, RiskStatus
 from ..schemas.risk import RiskCreate, RiskUpdate, RiskResponse
-from ..core.security import get_current_user
+from ..core.dependencies import get_current_user
 from ..models.user import User
 
 
